@@ -1,0 +1,85 @@
+[tool.poetry]
+name = "msk2s3"
+version = "0.1.0"
+description = ""
+authors = ["random1st <roman@giggster.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+boto3 = "^1.35.34"
+fastparquet = "^2024.5.0"
+pydantic = "^2.9.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.9"
+mypy = "^1.11.2"
+boto3-stubs = "^1.35.34"
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    "*.ipynb",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "migrations",
+    "tests"
+]
+
+line-length = 120
+indent-width = 4
+
+[tool.ruff.lint]
+# disabled linters: DOC, FBT, ARG, FIX
+select = ["F","E","W","C90","I","N","D","UP","YTT","ANN","ASYNC","S","BLE","B","A","COM","C4","DTZ","T10","DJ","EM","EXE","FA","ISC","ICN","LOG","G","INP","PIE","T20","PYI","PT","Q","RSE","RET","SLF","SLOT","SIM","TID","TCH","INT","PTH","TD","ERA","PD","PGH","PL","TRY","FLY","NPY","FAST","AIR","PERF","FURB","RUF"]
+ignore = ["PTH107", "E501", "D205", "ANN401","RUF012","PLR6301", "FA102","COM812", "S311", "D203",  "TD003", "D101", "D100", "D106", "D102", "D105", "D104", "D212", "D103", "D107", "ANN101", "PTH123", "S101", "ISC001"]
+preview = true
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.mypy]
+ignore_missing_imports = true
+explicit_package_bases = true
